@@ -5,7 +5,7 @@
             <div><b>{{`${experience.company_name}, ${experience.company_address}`}}</b></div>
             <div>{{experience.date}}</div>
             <div>{{experience.job_description}}</div>
-            <div class="projects">Projects:</div> 
+            <div class="projects" v-if="experience.project">Projects:</div> 
             <li v-for="proj in experience.project" :key="proj.name">
                 <a :href="proj.urlString">{{proj.name}}</a> 
             </li>
