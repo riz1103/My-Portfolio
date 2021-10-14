@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@babel/compat-data": "^7.15.0",
+    "@vue/babel-preset-app": "^4.5.14",
     "core-js": "3.5.0",
     "nouislider": "14.1.0",
     "v-tooltip": "2.0.2",
