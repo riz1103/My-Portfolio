@@ -89,9 +89,9 @@ export default {
 }
 </script>
 <style scoped>
-.itemized{
+/* .itemized{
     margin:20px;
-}
+} */
 .my-wrapper{
     margin-top:-30px;
 }
