@@ -49,28 +49,28 @@
                             <p>All Components</p>
                           </a>
                         </li>
-                        <li>
+                        <!-- <li>
                           <a
                             href="https://demos.creative-tim.com/vue-material-kit/documentation/"
                           >
                             <i class="material-icons">content_paste</i>
                             <p>Projects</p>
                           </a>
-                        </li>
+                        </li> -->
                       </ul>
                     </drop-down>
                   </div>
                 </a>
               </li>
 
-              <md-list-item
+              <!-- <md-list-item
                 href="https://demos.creative-tim.com/vue-material-kit/documentation/"
                 target="_blank"
                 v-if="showDownload"
               >
                 <i class="material-icons">content_paste</i>
                 <p>Projects</p>
-              </md-list-item>
+              </md-list-item> -->
 
               <md-list-item
                 v-if="showDownload"

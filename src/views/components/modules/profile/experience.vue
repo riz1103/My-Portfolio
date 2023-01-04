@@ -18,10 +18,26 @@ export default {
         return {
             exp:[
                 {
+                    company_name: 'Booth & Partners Philippines Inc',
+                    company_address: 'Makati City',
+                    date: 'November 2021 – Present',
+                    position: 'Frontend Developer',
+                    job_description: 'Working as a front-end developer for an Australian client (Australian ISP) customer and internal portal for managing customer accounts and payments. Also doing some modifications and developemnt in Microsoft Dynamics CRM.',
+                    project:[
+                        {
+                            name:'SpiritX Version 2',
+                            urlString:'https://v2.spiritx.com.au/'
+                        },
+                        {
+                            name:'Microsoft Dynamics CRM Projects'
+                        }                     
+                    ]
+                },
+                {
                     company_name: 'Yondu Inc',
                     company_address: 'BGC Makati City',
-                    date: 'October 2020 – Present',
-                    position: 'Vue Developer',
+                    date: 'October 2020 – November 2021',
+                    position: 'Senior Software Engineer',
                     job_description: 'Working as a front-end developer in ecommerce app and content management systems through agile scrum. Creates and implements reusable components for more effective and faster development for the team depending on the requirements of the client.',
                     project:[
                         {

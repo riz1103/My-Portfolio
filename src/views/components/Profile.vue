@@ -101,9 +101,18 @@
               <input readonly type="range" value="40"/>
             </td>
             <td>
-              {{ 40 }}%
+              {{ 30 }}%
             </td>
-          </tr>          
+          </tr>
+          <tr>
+            <td cols="6">MS Dynamics CRM</td>
+            <td cols="6">
+              <input readonly type="range" value="50"/>
+            </td>
+            <td>
+              {{ 70 }}%
+            </td>
+          </tr>
         </div>
       </div>
       <div class="title">
