@@ -22,7 +22,7 @@ export default {
                     company_address: 'Makati City',
                     date: 'November 2021 – Present',
                     position: 'Frontend Developer',
-                    job_description: 'Working as a front-end developer for an Australian client (Australian ISP) customer and internal portal for managing customer accounts and payments. Also doing some modifications and developemnt in Microsoft Dynamics CRM.',
+                    job_description: 'Working as a front-end developer for an Australian client (Australian ISP) customer and internal portal for managing customer accounts and payments. Also doing some modifications and development in Microsoft Dynamics CRM.',
                     project:[
                         {
                             name:'SpiritX Version 2',
