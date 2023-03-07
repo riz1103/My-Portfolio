@@ -7,7 +7,8 @@
             <div>{{experience.job_description}}</div>
             <div class="projects" v-if="experience.project">Projects:</div> 
             <li v-for="proj in experience.project" :key="proj.name">
-                <a :href="proj.urlString">{{proj.name}}</a> 
+                <a :href="proj.urlString"><b>{{proj.name}}</b></a><p>{{proj.description}}</p>
+                <p v-if="proj.skill_used"><b>Skills Applied: </b>{{proj.skill_used}}</p>
             </li>
         </div>
     </div>
@@ -22,14 +23,17 @@ export default {
                     company_address: 'Makati City',
                     date: 'November 2021 – Present',
                     position: 'Frontend Developer',
-                    job_description: 'Working as a front-end developer for an Australian client (Australian ISP) customer and internal portal for managing customer accounts and payments. Also doing some modifications and development in Microsoft Dynamics CRM.',
+                    job_description: 'Working as a front-end developer for an Australian client (Australian ISP) customer and internal portal for managing customer accounts and payments. Also doing some modifications and development in Microsoft Dynamics CRM as well as creating my own custom components in it using React js.',
                     project:[
                         {
                             name:'SpiritX Version 2',
-                            urlString:'https://v2.spiritx.com.au/'
+                            urlString:'https://v2.spiritx.com.au/',
+                            description:'A customer portal and a support management app for an Australian ISP Company.',
+                            skill_used:'Vue js (Nuxt)'
                         },
                         {
-                            name:'Microsoft Dynamics CRM Projects'
+                            name:'Microsoft Dynamics CRM Projects',
+                            description: 'Modification of existing components and creating my own custom controls for it to enhance the look and the flexibility.'
                         }                     
                     ]
                 },
@@ -42,19 +46,27 @@ export default {
                     project:[
                         {
                             name:'REX Content Management System',
-                            urlString:'http://54.255.43.137:81/'
+                            urlString:'http://54.255.43.137:81/',
+                            description:'A Content Management System web app to manage the contents in the Rex Storefront.',
+                            skill_used:'Vue js (Nuxt js)'
                         },
                         {
                             name:'REX Storefront',
-                            urlString:'https://stg-estore-sf.yondu.net/'
+                            urlString:'https://stg-estore-sf.yondu.net/',
+                            description:'An e-commerce web app for a bookstore.',
+                            skills_used:'Vue js (Quasar)'
                         },
                         {
                             name:'WEE Content Management System',
-                            urlString:'https://wee-trial.yondu.com/'
+                            urlString:'https://wee-trial.yondu.com/',
+                            description:'A Content Management System web app to manage the contents in the WEE Storefront.',
+                            skill_used:'Vue js (Nuxt js)'
                         },
                         {
                             name:'WEE Storefront',
-                            urlString:'https://wee-trial.storefront.yondu.com/'
+                            urlString:'https://wee-trial.storefront.yondu.com/',
+                            description:'An e-commerce web app.',
+                            skill_used:'Vue js (Nuxt js)'
                         }
                         
                     ]
@@ -68,27 +80,39 @@ export default {
                     project:[
                         {
                             name:'FSC Website',
-                            urlString:'https://apps.fastlogistics.com.ph/fscweb/#/'
+                            urlString:'https://apps.fastlogistics.com.ph/fscweb/#/',
+                            description:'Company\'s official commercial website. Also act as an employee portal to access employees information and tasks including the status of those. This includes the "Ladderized Report" automation.',
+                            skill_used: 'Vue js for frontend, and C#.NET for the backend.'
                         },
                         {
                             name:'Aquila Go',
-                            urlString:'https://aquilago.fastlogistics.com.ph/'
+                            urlString:'https://aquilago.fastlogistics.com.ph/',
+                            description:'Warehouse Management System web app and mobile.',
+                            skill_used: 'Vue js for frontend, C#.NET for the backend, and Capacitor for compilation into mobile.'
                         },
                         {
                             name:'Itsek Web',
-                            urlString:'https://itsek.fastlogistics.com.ph/'
+                            urlString:'https://itsek.fastlogistics.com.ph/',
+                            description:'A warehouse checklist web app.',
+                            skill_used: 'Vue js for frontend, C#.NET for the backend, and Capacitor for compilation into mobile.'
                         },
                         {
                             name:'Itsek Mobile',
-                            urlString:'https://play.google.com/store/apps/details?id=itsektwo.fastgroup.biz'
+                            urlString:'https://play.google.com/store/apps/details?id=itsektwo.fastgroup.biz',
+                            description:'A warehouse checklist app for mobile devices.',
+                            skill_used: 'Vue js for frontend, C#.NET for the backend, and Capacitor for compilation into mobile.'
                         },
                         {
                             name:'Vendors Accreditation Systems Online (VASO)',
-                            urlString:'https://apps.fastlogistics.com.ph/vaso/#/login'
+                            urlString:'https://apps.fastlogistics.com.ph/vaso/#/login',
+                            description:'A portal for all vendors/suppliers that they are using to apply as an accredited vendor/supplier for the company.',
+                            skill_used: 'Vue js for frontend, and C#.NET for the backend.'
                         },
                         {
                             name:'Quality Management System (QMS)',
-                            urlString:'https://apps.fastlogistics.com.ph/qms/#/'
+                            urlString:'https://apps.fastlogistics.com.ph/qms/#/',
+                            description:'A report automation web app focused on automatically generating reports with analysis attached pertaining to quality aspect of the workplace.',
+                            skill_used: 'Vue js for frontend, and C#.NET for the backend.'
                         },
                     ]
                 },
@@ -113,5 +137,7 @@ export default {
 }
 .projects{
     font-weight: bold;
+    margin-top:10px;
+    margin-bottom: 5px;
 }
 </style>
