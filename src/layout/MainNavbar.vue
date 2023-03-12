@@ -75,7 +75,7 @@
               <md-list-item
                 v-if="showDownload"
               >
-              <a download="Resume.docx" href="/file/Resume.docx">
+              <a download="Resume.docx" href="/file/Resume (Joseriz Concepcion).pdf">
                 <i class="material-icons">cloud_download</i>
                 <p>Download Resume</p>
               </a>
