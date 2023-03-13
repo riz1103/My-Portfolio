@@ -33,7 +33,8 @@ export default {
                         },
                         {
                             name:'Microsoft Dynamics CRM Projects',
-                            description: 'Modification of existing components and creating my own custom controls for it to enhance the look and the flexibility.'
+                            description: 'Modification of existing components and creating my own custom controls for it to enhance the look and the flexibility.',
+                            skill_used:'React js and MS Dynamics knowledge'
                         }                     
                     ]
                 },
@@ -54,7 +55,7 @@ export default {
                             name:'REX Storefront',
                             urlString:'https://stg-estore-sf.yondu.net/',
                             description:'An e-commerce web app for a bookstore.',
-                            skills_used:'Vue js (Quasar)'
+                            skill_used:'Vue js (Quasar)'
                         },
                         {
                             name:'WEE Content Management System',
