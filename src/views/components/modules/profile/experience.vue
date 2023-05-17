@@ -5,9 +5,10 @@
             <div><b>{{`${experience.company_name}, ${experience.company_address}`}}</b></div>
             <div>{{experience.date}}</div>
             <div>{{experience.job_description}}</div>
-            <div class="projects" v-if="experience.project">Projects:</div> 
-            <li v-for="proj in experience.project" :key="proj.name">
-                <a :href="proj.urlString">{{proj.name}}</a> 
+            <div class="projects" style="margin-left:20px" v-if="experience.project">Projects:</div> 
+            <li v-for="proj in experience.project" :key="proj.name" style="margin-left:20px">
+                <a :href="proj.urlString"><b>{{proj.name}}</b></a><p style="margin-left:20px">{{proj.description}}</p>
+                <p v-if="proj.skill_used" style="margin-left:20px"><b>Skills Applied: <span class="blink">{{proj.skill_used}}</span></b></p>
             </li>
         </div>
     </div>
