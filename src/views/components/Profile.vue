@@ -12,9 +12,9 @@
           <br />
           <small
             >I’m a full-stack (Front-end and Back-end) developer for 4 years and
-            Front-end developer for two years. I developed applications for
+            Front-end developer for three years. I developed applications for
             business management and analytics and as well as an ecommerce app. I
-            also created mobile app version of some.</small
+            also created mobile app version of some. I also have experience in Microsoft Dynamics and Powerapp development.</small
           >
         </h3>
       </div>

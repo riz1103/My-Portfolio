@@ -34,9 +34,9 @@ export default {
                             skill_used: 'Vue js (Nuxt)'
                         },
                         {
-                            name: 'Microsoft Dynamics CRM Projects',
+                            name: 'Microsoft Dynamics CRM and Power App Projects',
                             description: 'Modification of existing components and creating my own custom controls for it to enhance the look and the flexibility.',
-                            skill_used: 'React js and MS Dynamics knowledge'
+                            skill_used: 'React.js, MS Dynamics, Power App and Power Automate'
                         }
                     ]
                 },
