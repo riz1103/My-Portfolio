@@ -118,7 +118,7 @@ export default {
     range(min, max) {
       let arr = [];
       for (let i = min; i <= max; i++) {
-        arr.push(i);
+        // arr.push(i);
       }
       return arr;
     },

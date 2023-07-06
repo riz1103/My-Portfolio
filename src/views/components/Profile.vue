@@ -3,16 +3,20 @@
     <div>
       <div class="title">
         <img
-            :src="avatar"
-            alt="Raised Image"
-            class="img-raised rounded"
-            style="float:right;margin: 2px;"
-          />
+          :src="avatar"
+          alt="Raised Image"
+          class="img-raised rounded"
+          style="float:right;margin: 2px;"
+        />
         <h3>
-           <br />
-          <small>I’m a full-stack (Front-end and Back-end) developer for 4 years and Front-end developer for a year. I developed applications for business management and analytics and as well as an ecommerce app. I also created mobile app version of some.</small>
+          <br />
+          <small
+            >I’m a full-stack (Front-end and Back-end) developer for 4 years and
+            Front-end developer for two years. I developed applications for
+            business management and analytics and as well as an ecommerce app. I
+            also created mobile app version of some.</small
+          >
         </h3>
-        
       </div>
       <!-- <div class="md-layout">
         <div class="md-layout-item md-size-66 mx-auto">
@@ -35,89 +39,80 @@
           <tr>
             <td cols="6">HTML</td>
             <td cols="6">
-              <input readonly type="range" value="100"/> 
+              <input readonly type="range" value="100" />
             </td>
-            <td>
-              {{ 100 }}%
-            </td>
+            <td>{{ 100 }}%</td>
           </tr>
           <tr>
             <td cols="6">Javascript</td>
             <td cols="6">
-              <input readonly type="range" value="80"/>
+              <input readonly type="range" value="80" />
             </td>
-            <td>
-              {{ 80 }}%
-            </td>
+            <td>{{ 80 }}%</td>
           </tr>
           <tr>
             <td cols="6">CSS3</td>
             <td cols="6">
-              <input readonly type="range" value="70"/>
+              <input readonly type="range" value="70" />
             </td>
-            <td>
-              {{ 70 }}%
-            </td>
+            <td>{{ 70 }}%</td>
           </tr>
           <tr>
             <td cols="6">Vuejs</td>
             <td cols="6">
-              <input readonly type="range" value="90"/>
+              <input readonly type="range" value="90" />
             </td>
-            <td>
-              {{ 90 }}%
-            </td>
+            <td>{{ 90 }}%</td>
           </tr>
           <tr>
             <td cols="6">C#.NET</td>
             <td cols="6">
-              <input readonly type="range" value="70"/>
+              <input readonly type="range" value="70" />
             </td>
-            <td>
-              {{ 70 }}%
-            </td>
+            <td>{{ 70 }}%</td>
           </tr>
           <tr>
             <td cols="6">MS SQL</td>
             <td cols="6">
-              <input readonly type="range" value="70"/>
+              <input readonly type="range" value="70" />
             </td>
-            <td>
-              {{ 70 }}%
-            </td>
+            <td>{{ 70 }}%</td>
           </tr>
           <tr>
             <td cols="6">Reactjs</td>
             <td cols="6">
-              <input readonly type="range" value="50"/>
+              <input readonly type="range" value="50" />
             </td>
-            <td>
-              {{ 50 }}%
-            </td>
+            <td>{{ 50 }}%</td>
           </tr>
           <tr>
             <td cols="6">Angular</td>
             <td cols="6">
-              <input readonly type="range" value="40"/>
+              <input readonly type="range" value="40" />
             </td>
-            <td>
-              {{ 40 }}%
+            <td>{{ 30 }}%</td>
+          </tr>
+          <tr>
+            <td cols="6">MS Dynamics CRM</td>
+            <td cols="6">
+              <input readonly type="range" value="50" />
             </td>
-          </tr>          
+            <td>{{ 70 }}%</td>
+          </tr>
         </div>
       </div>
       <div class="title">
         <h3>Work Experience</h3>
       </div>
       <div class="md-layout">
-        <Experience  class="md-layout-item md-size-50 md-xsmall-size-100"/>
-        <img :src="ProfessionalImg" class="pro-img"/>
+        <Experience class="md-layout-item md-size-50 md-xsmall-size-100" />
+        <img :src="ProfessionalImg" class="pro-img" />
       </div>
       <div class="title">
         <h3>Education</h3>
       </div>
       <div class="md-layout">
-        <Education  class="md-layout-item md-size-50 md-xsmall-size-100"/>
+        <Education class="md-layout-item md-size-50 md-xsmall-size-100" />
       </div>
     </div>
     <!-- end sliders -->
@@ -136,7 +131,7 @@ import ProfessionalImg from "../../assets/img/professional.png";
 export default {
   components: {
     Experience,
-    Education
+    Education,
   },
   data() {
     return {
@@ -163,10 +158,10 @@ export default {
       buffer: 40,
       sliders: {
         simple: 40,
-        rangeSlider: [20, 60]
-      }
+        rangeSlider: [20, 60],
+      },
     };
-  }
+  },
 };
 </script>
 
@@ -185,7 +180,7 @@ export default {
   margin: 0;
   margin-bottom: 0.5rem;
 }
-.pro-img{
+.pro-img {
   align-self: center;
   transition: width 2s, height 2s, transform 2s;
 }
