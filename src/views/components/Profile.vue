@@ -12,7 +12,7 @@
           <br />
           <small
             >I’m a full-stack (Front-end and Back-end) developer for 4 years and
-            Front-end developer for two years. I developed applications for
+            Front-end developer for three years. I developed applications for
             business management and analytics and as well as an ecommerce app. I
             also created mobile app version of some.</small
           >
@@ -86,11 +86,11 @@
             <td>{{ 50 }}%</td>
           </tr>
           <tr>
-            <td cols="6">Angular</td>
+            <td cols="6">Typescript</td>
             <td cols="6">
               <input readonly type="range" value="40" />
             </td>
-            <td>{{ 30 }}%</td>
+            <td>{{ 80 }}%</td>
           </tr>
           <tr>
             <td cols="6">MS Dynamics CRM</td>

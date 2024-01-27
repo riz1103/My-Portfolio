@@ -7,10 +7,10 @@
             <div>{{ experience.job_description }}</div>
             <div class="projects" style="margin-left:20px" v-if="experience.project">Projects:</div>
             <li v-for="proj in experience.project" :key="proj.name" style="margin-left:20px">
-                <a :href="proj.urlString"><b>{{ proj.name }}</b></a>
+                <a :href="proj.urlString" target="_blank"><b>{{ proj.name }}</b></a>
                 <p style="margin-left:20px">{{ proj.description }}</p>
-                <p v-if="proj.skill_used" style="margin-left:20px"><b>Skills Applied: <span
-                            class="blink">{{ proj.skill_used }}</span></b></p>
+                <p v-if="proj.skill_used" style="margin-left:20px"><b>Skills Applied: <span class="blink">{{ proj.skill_used
+                }}</span></b></p>
             </li>
         </div>
     </div>
@@ -21,9 +21,30 @@ export default {
         return {
             exp: [
                 {
+                    company_name: 'EMAPTA Philippines Inc',
+                    company_address: 'Makati City',
+                    date: 'September 2023 – Present',
+                    position: 'Senior Frontend Developer',
+                    job_description: 'Working with Australian client that is providing network management solutions for Hotels. I am assigned to customer and in-house portal apps to cater ordering, monitoring and testing of network devices deployed in the customer.',
+                    project: [
+                        {
+                            name: 'Stella UAT Portal',
+                            urlString: 'https://star-dev.stellanetworks.io/',
+                            description: 'A customer portal for ordering, monitoring and testing network devices of customers.',
+                            skill_used: 'Vue 3, Typescript, MVC'
+                        },
+                        {
+                            name: 'Stella Config Portal',
+                            urlString: 'https://config-testing.stellaportal.dev',
+                            description: 'A portal used to implement deeper testing and configuration of network devices deployed in customers',
+                            skill_used: 'Vue 3, Typescript, Pinia and Quasar'
+                        }
+                    ]
+                },
+                {
                     company_name: 'Booth & Partners Philippines Inc',
                     company_address: 'Makati City',
-                    date: 'November 2021 – Present',
+                    date: 'November 2021 – September 2023',
                     position: 'Frontend Developer',
                     job_description: 'Working as a front-end developer for an Australian client (Australian ISP) customer and internal portal for managing customer accounts and payments. Also doing some modifications and development in Microsoft Dynamics CRM as well as creating my own custom components in it using React js.',
                     project: [
@@ -199,4 +220,5 @@ export default {
     100% {
         color: red;
     }
-}</style>
+}
+</style>
