@@ -1,6 +1,14 @@
 <template>
   <div class="wrapper">
     <parallax class="page-header header-filter" :style="headerStyle">
+      <div class="floating-elements">
+        <div v-for="(icon, index) in floatingIcons" :key="index" 
+             class="tech-element" 
+             :style="getRandomPosition(index)">
+          <i :class="icon"></i>
+        </div>
+      </div>
+
       <div class="md-layout">
         <div class="md-layout-item">
           <div class="image-wrapper">
@@ -9,8 +17,8 @@
             <img :src="leaf2" alt="leaf2" class="leaf2" v-show="leafShow" />
             <img :src="leaf1" alt="leaf1" class="leaf1" v-show="leafShow" /> -->
             <div class="brand">
-              <h1>Joseriz M. Concepcion</h1>
-              <h3>A software engineer that you need.</h3>
+              <h1>Software Engineer</h1>
+              <h3>Building the Future Through Code</h3>
             </div>
           </div>
         </div>
@@ -20,7 +28,7 @@
       <div class="section section-basic">
         <div class="container">
           <div class="title">
-            <h2>Profile</h2>
+            <!-- <h2>Profile</h2> -->
           </div>
           <Profile/>
         </div>
@@ -268,28 +276,21 @@
 
 <script>
 import Profile from "./components/Profile";
-import Navigation from "./components/NavigationSection";
-import SmallNavigation from "./components/SmallNavigationSection";
-import Tabs from "./components/TabsSection";
-import NavPills from "./components/NavPillsSection";
-import Notifications from "./components/NotificationsSection";
-import TypographyImages from "./components/TypographyImagesSection";
-import JavascriptComponents from "./components/JavascriptComponentsSection";
-import { LoginCard } from "@/components";
+// Remove unused imports to clean up
+// import Navigation from "./components/NavigationSection";
+// import SmallNavigation from "./components/SmallNavigationSection";
+// import Tabs from "./components/TabsSection";
+// import NavPills from "./components/NavPillsSection";
+// import Notifications from "./components/NotificationsSection";
+// import TypographyImages from "./components/TypographyImagesSection";
+// import JavascriptComponents from "./components/JavascriptComponentsSection";
+// import { LoginCard } from "@/components";
 
 export default {
-  components: {
-    Profile,
-    // Navigation,
-    // SmallNavigation,
-    // Tabs,
-    // NavPills,
-    // Notifications,
-    // TypographyImages,
-    // JavascriptComponents,
-    // LoginCard
-  },
   name: "index",
+  components: {
+    Profile // Only register the components we're actually using
+  },
   bodyClass: "index-page",
   props: {
     image: {
@@ -330,7 +331,24 @@ export default {
       firstname: null,
       email: null,
       password: null,
-      leafShow: false
+      leafShow: false,
+      floatingIcons: [
+        'fas fa-code',
+        'fas fa-database',
+        'fab fa-react',
+        'fab fa-vuejs',
+        'fab fa-js-square',
+        'fas fa-terminal',
+        'fas fa-laptop-code',
+        'fas fa-bug',
+        'fas fa-server',
+        'fas fa-cloud',
+        'fab fa-html5',
+        'fab fa-css3',
+        'fab fa-node',
+        'fas fa-cogs',
+        'fas fa-layer-group'
+      ]
     };
   },
   methods: {
@@ -340,12 +358,23 @@ export default {
       } else {
         this.leafShow = true;
       }
+    },
+    getRandomPosition(index) {
+      return {
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * -8}s`,
+        animationDuration: `${6 + Math.random() * 4}s`,
+        fontSize: `${16 + Math.random() * 24}px`
+      };
     }
   },
   computed: {
     headerStyle() {
       return {
-        backgroundImage: `url(${this.image})`
+        backgroundImage: `url(${require("@/assets/img/city.jpg")})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
       };
     },
     signupImage() {
@@ -373,6 +402,79 @@ export default {
 @media all and (min-width: 991px) {
   .btn-container {
     display: flex;
+  }
+}
+
+.floating-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.tech-element {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.3);
+  animation: float 8s ease-in-out infinite;
+  
+  i {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg) scale(1.1);
+  }
+}
+
+.page-header {
+  position: relative;
+  overflow: hidden;
+  
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+  }
+  
+  .brand {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.brand {
+  h1 {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out;
+  }
+  
+  h3 {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
