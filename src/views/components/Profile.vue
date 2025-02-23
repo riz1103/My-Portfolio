@@ -83,9 +83,6 @@
 </template>
 
 <script>
-import { Pagination } from "@/components";
-import { Slider } from "@/components";
-import { Badge } from "@/components";
 import idPic from "../../assets/img/idPic.png";
 import Experience from "./modules/profile/experience";
 import Education from "./modules/profile/education";
