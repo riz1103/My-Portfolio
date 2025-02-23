@@ -26,7 +26,7 @@
         <div class="intro-section">
           <p class="tagline">Transforming ideas into elegant solutions</p>
           <p class="intro-text">
-            With 8 years of development expertise, I specialize in creating robust full-stack solutions 
+            With 9 years of development expertise, I specialize in creating robust full-stack solutions 
             that drive business growth and user engagement.
           </p>
           <div class="specialty-cards">
