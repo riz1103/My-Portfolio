@@ -75,10 +75,13 @@
               <md-list-item
                 v-if="showDownload"
               >
-              <a download="Resume (Joseriz Concepcion).pdf" href="/file/Resume (Joseriz Concepcion).pdf">
-                <i class="material-icons">cloud_download</i>
-                <p>Download Resume</p>
-              </a>
+                <a
+                  download="Resume (Joseriz Concepcion).pdf"
+                  href="/file/Resume (Joseriz Concepcion).pdf"
+                >
+                  <i class="material-icons">cloud_download</i>
+                  <p>Download CV</p>
+                </a>
               </md-list-item>
 
               <li class="md-list-item" v-else>
