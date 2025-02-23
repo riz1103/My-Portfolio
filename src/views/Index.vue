@@ -17,8 +17,8 @@
             <img :src="leaf2" alt="leaf2" class="leaf2" v-show="leafShow" />
             <img :src="leaf1" alt="leaf1" class="leaf1" v-show="leafShow" /> -->
             <div class="brand">
-              <h1>Software Engineer</h1>
-              <h3>Building the Future Through Code</h3>
+              <h1>Joseriz Concepcion</h1>
+              <h3>A Software Engineer that Builds the Future Through Code</h3>
             </div>
           </div>
         </div>
