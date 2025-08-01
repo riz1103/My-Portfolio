@@ -69,13 +69,13 @@ export default {
           project: [
             {
               name: 'Stella UAT Portal',
-              urlString: 'https://star-dev.stellanetworks.io/',
+              urlString: 'https://dev.stellanetworks.io/',
               description: 'A customer portal for ordering, monitoring and testing network devices of customers.',
               skill_used: 'Vue 3, Typescript, MVC'
             },
             {
               name: 'Stella Config Portal',
-              urlString: 'https://config-testing.stellaportal.dev',
+              urlString: 'https://dev.stellanetworks.io/config',
               description: 'A portal used to implement deeper testing and configuration of network devices deployed in customers',
               skill_used: 'Vue 3, Typescript, Pinia, Quasar'
             }
@@ -116,7 +116,7 @@ export default {
             },
             {
               name: 'REX Storefront',
-              urlString: 'https://stg-estore-sf.yondu.net/',
+              urlString: 'https://estore.rex.com.ph/',
               description: 'An e-commerce web app for a bookstore.',
               skill_used: 'Vue js (Quasar)'
             },
