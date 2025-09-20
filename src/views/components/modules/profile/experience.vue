@@ -4,13 +4,20 @@
       <div class="timeline-marker"></div>
       <div class="timeline-content">
         <div class="experience-header">
-          <h3 class="position">{{ experience.position }}</h3>
-          <span class="date">{{ experience.date }}</span>
-        </div>
-        
-        <div class="company-info">
-          <i class="material-icons">business</i>
-          <span>{{ `${experience.company_name}, ${experience.company_address}` }}</span>
+          <div class="position-info">
+            <h3 class="position">{{ experience.position }}</h3>
+            <div class="company-info">
+              <i class="material-icons">business</i>
+              <span>{{ `${experience.company_name}, ${experience.company_address}` }}</span>
+            </div>
+          </div>
+          <div class="experience-meta">
+            <span class="date">{{ experience.date }}</span>
+            <div class="experience-duration">
+              <i class="material-icons">schedule</i>
+              <span>{{ getDuration(experience.date) }}</span>
+            </div>
+          </div>
         </div>
 
         <p class="job-description">{{ experience.job_description }}</p>
@@ -37,7 +44,7 @@
               <div v-if="proj.skill_used" class="skills-used">
                 <div class="skills-label">
                   <i class="material-icons">code</i>
-                  Technologies:
+                  Technologies Used:
                 </div>
                 <div class="skill-tags">
                   <span v-for="skill in proj.skill_used.split(',')" 
@@ -46,6 +53,13 @@
                     {{ skill.trim() }}
                   </span>
                 </div>
+              </div>
+              
+              <div v-if="proj.urlString" class="project-actions">
+                <a :href="proj.urlString" target="_blank" class="project-link-btn">
+                  <i class="material-icons">open_in_new</i>
+                  View Live Demo
+                </a>
               </div>
             </div>
           </div>
@@ -69,7 +83,7 @@ export default {
           project: [
             {
               name: 'Stella UAT Portal',
-              urlString: 'https://star-dev.stellanetworks.io/',
+              urlString: 'https://dev.stellanetworks.io/',
               description: 'A customer portal for ordering, monitoring and testing network devices of customers.',
               skill_used: 'Vue 3, Typescript, MVC'
             },
@@ -116,7 +130,7 @@ export default {
             },
             {
               name: 'REX Storefront',
-              urlString: 'https://stg-estore-sf.yondu.net/',
+              urlString: 'https://estore.rex.com.ph/',
               description: 'An e-commerce web app for a bookstore.',
               skill_used: 'Vue js (Quasar)'
             },
@@ -188,6 +202,26 @@ export default {
         },
       ]
     };
+  },
+  methods: {
+    getDuration(dateRange) {
+      const dates = dateRange.split(' – ');
+      if (dates.length !== 2) return 'Duration not specified';
+      
+      const startDate = new Date(dates[0]);
+      const endDate = dates[1] === 'Present' ? new Date() : new Date(dates[1]);
+      
+      const diffTime = Math.abs(endDate - startDate);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      const years = Math.floor(diffDays / 365);
+      const months = Math.floor((diffDays % 365) / 30);
+      
+      if (years > 0) {
+        return months > 0 ? `${years}y ${months}m` : `${years}y`;
+      } else {
+        return `${months}m`;
+      }
+    }
   }
 };
 </script>
@@ -245,22 +279,51 @@ export default {
 .experience-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.position-info {
+  flex: 1;
 }
 
 .position {
-  font-size: 1.4em;
+  font-size: 1.5em;
   color: #2196F3;
-  margin: 0;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.experience-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .date {
   color: #666;
+  font-size: 0.95em;
+  padding: 6px 14px;
+  background: #f8f9fa;
+  border-radius: 16px;
+  font-weight: 500;
+  border: 1px solid #e9ecef;
+}
+
+.experience-duration {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #666;
   font-size: 0.9em;
-  padding: 5px 12px;
-  background: #f5f5f5;
-  border-radius: 15px;
+  
+  i {
+    font-size: 16px;
+    color: #2196F3;
+  }
 }
 
 .company-info {
@@ -385,6 +448,36 @@ export default {
   }
 }
 
+.project-actions {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.project-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(45deg, #2196F3, #3F51B5);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: linear-gradient(45deg, #1976D2, #303F9F);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+  }
+  
+  i {
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 768px) {
   .timeline-item {
     padding-left: 30px;
@@ -393,11 +486,20 @@ export default {
   .experience-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 15px;
+  }
+  
+  .experience-meta {
+    align-items: flex-start;
   }
   
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .project-link-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 </style>
