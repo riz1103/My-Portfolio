@@ -4,13 +4,20 @@
       <div class="timeline-marker"></div>
       <div class="timeline-content">
         <div class="experience-header">
-          <h3 class="position">{{ experience.position }}</h3>
-          <span class="date">{{ experience.date }}</span>
-        </div>
-        
-        <div class="company-info">
-          <i class="material-icons">business</i>
-          <span>{{ `${experience.company_name}, ${experience.company_address}` }}</span>
+          <div class="position-info">
+            <h3 class="position">{{ experience.position }}</h3>
+            <div class="company-info">
+              <i class="material-icons">business</i>
+              <span>{{ `${experience.company_name}, ${experience.company_address}` }}</span>
+            </div>
+          </div>
+          <div class="experience-meta">
+            <span class="date">{{ experience.date }}</span>
+            <div class="experience-duration">
+              <i class="material-icons">schedule</i>
+              <span>{{ getDuration(experience.date) }}</span>
+            </div>
+          </div>
         </div>
 
         <p class="job-description">{{ experience.job_description }}</p>
@@ -20,24 +27,33 @@
             <i class="material-icons">rocket_launch</i>
             Key Projects
           </h4>
-          
+          <div v-if="!isCurrentJob(experience.date)" class="project-note">
+            <i class="material-icons">info</i>
+            <span>Note: Some project links may no longer be accessible as I no longer have control over these deployments.</span>
+          </div>
           <div class="projects-grid">
             <div v-for="proj in experience.project" :key="proj.name" class="project-card">
               <div class="project-header">
                 <h5 class="project-name">
-                  <a :href="proj.urlString" target="_blank" class="project-link">
+                  <a v-if="!proj.note" :href="proj.urlString" target="_blank" class="project-link">
                     {{ proj.name }}
                     <i class="material-icons">open_in_new</i>
                   </a>
+                  <span v-else class="project-name-text">{{ proj.name }}</span>
                 </h5>
               </div>
               
               <p class="project-description">{{ proj.description }}</p>
               
+              <div v-if="proj.note" class="project-specific-note">
+                <i class="material-icons">info</i>
+                <span>{{ proj.note }}</span>
+              </div>
+              
               <div v-if="proj.skill_used" class="skills-used">
                 <div class="skills-label">
                   <i class="material-icons">code</i>
-                  Technologies:
+                  Technologies Used:
                 </div>
                 <div class="skill-tags">
                   <span v-for="skill in proj.skill_used.split(',')" 
@@ -46,6 +62,13 @@
                     {{ skill.trim() }}
                   </span>
                 </div>
+              </div>
+              
+              <div v-if="proj.urlString && !proj.note" class="project-actions">
+                <a :href="proj.urlString" target="_blank" class="project-link-btn">
+                  <i class="material-icons">open_in_new</i>
+                  View Live Demo
+                </a>
               </div>
             </div>
           </div>
@@ -61,11 +84,11 @@ export default {
     return {
       exp: [
         {
-          company_name: 'EMAPTA Philippines Inc',
+          company_name: 'EMAPTA Philippines Incorporated',
           company_address: 'Makati City',
-          date: 'September 2023 – Present',
-          position: 'Senior Frontend Developer',
-          job_description: 'Working with Australian client that is providing network management solutions for Hotels. I am assigned to customer and in-house portal apps to cater ordering, monitoring and testing of network devices deployed in the customer.',
+          date: '09/2023 – Current',
+          position: 'Senior Front-end Developer',
+          job_description: 'Lead development of Vue 3 + TypeScript frontend components for customer-facing and internal enterprise portals for an Australian Hospitality and Data Networking company. Designed and implemented reusable, scalable UI components to improve development speed and consistency. Improved performance, maintainability, and reliability of frontend applications. Collaborated closely with backend, UI/UX and product teams to deliver features aligned with business goals. Actively involved in code reviews, bug resolution, and architectural improvements.',
           project: [
             {
               name: 'Stella UAT Portal',
@@ -77,16 +100,17 @@ export default {
               name: 'Stella Config Portal',
               urlString: 'https://dev.stellanetworks.io/config',
               description: 'A portal used to implement deeper testing and configuration of network devices deployed in customers',
-              skill_used: 'Vue 3, Typescript, Pinia, Quasar'
+              skill_used: 'Vue 3, Typescript, Pinia, Quasar',
+              note: 'This portal has been merged with the UAT Portal and is now part of it. The link is no longer accessible.'
             }
           ]
         },
         {
           company_name: 'Booth & Partners Philippines Inc',
           company_address: 'Makati City',
-          date: 'November 2021 – September 2023',
+          date: '11/2021 – 09/2023',
           position: 'Frontend Developer',
-          job_description: 'Working as a front-end developer for an Australian client (Australian ISP) customer and internal portal for managing customer accounts and payments. Also doing some modifications and development in Microsoft Dynamics CRM as well as creating my own custom components in it using React js.',
+          job_description: 'Developed customer portal and support platform for Australian telecommunications company, improving user engagement. Maintained and enhanced frontend systems to ensure stability and timely deployments, contributing to seamless user experience. Diagnosed and fixed UI bugs, performance issues, and edge cases. Supported continuous delivery while adhering to strict timelines and quality standards. Collaborated with cross-functional teams in agile environment to deliver responsive and user-centric solutions.',
           project: [
             {
               name: 'SpiritX Version 2',
@@ -102,11 +126,11 @@ export default {
           ]
         },
         {
-          company_name: 'Yondu Inc',
+          company_name: 'Yondy Inc',
           company_address: 'BGC Makati City',
-          date: 'October 2020 – November 2021',
-          position: 'Senior Software Engineer',
-          job_description: 'Working as a front-end developer in ecommerce app and content management systems through agile scrum. Creates and implements reusable components for more effective and faster development for the team depending on the requirements of the client.',
+          date: '11/2020 – 11/2021',
+          position: 'Vue Developer',
+          job_description: 'Developed frontend features for e-commerce applications and content management systems. Built reusable Vue components to improve team productivity and code consistency. Participated in Agile Scrum ceremonies, sprint planning, and reviews. Translated business requirements into clean, maintainable frontend solutions.',
           project: [
             {
               name: 'REX Content Management System',
@@ -137,9 +161,9 @@ export default {
         {
           company_name: 'Fast Services Corporation',
           company_address: 'Alabang Muntinlupa City',
-          date: 'May 2012 – October 2020',
+          date: '05/2012 – 10/2020',
           position: 'IT Programmer',
-          job_description: 'Worked closely with software development and testing team members to design and develop robust solutions to meet client requirements for functionality, scalability and performance. Built, tested and deployed scalable, highly available and modular software products. Built databases and table structures. Modified existing software to correct errors, adapt to new hardware and improve performance. Maintained existing applications and designed and delivered new applications.',
+          job_description: 'Designed and developed business management and analytics systems. Worked across frontend and backend using C#.NET, MS SQL, and web technologies. Collaborated with QA and stakeholders to ensure scalable and reliable solutions. Contributed to long-term system maintenance and performance improvements.',
           project: [
             {
               name: 'FSC Website',
@@ -180,14 +204,47 @@ export default {
           ]
         },
         {
-          company_name: 'Enigma Technologies Inc. ',
+          company_name: 'Enigma Technologies Inc.',
           company_address: 'Sta. Rosa, Laguna',
-          date: 'January 2010 – February 2011',
+          date: '01/2010 – 02/2011',
           position: 'Computer Technician',
-          job_description: 'Assembles, configure and troubleshoot computers both laptop and desktop. Network cabling and CCTV installation.'
+          job_description: 'Assembled, configured, and troubleshot laptops and desktops. Performed network cabling and CCTV installation. Provided on-site technical support and maintenance.'
         },
       ]
     };
+  },
+  methods: {
+    isCurrentJob(dateRange) {
+      return dateRange.includes('Current') || dateRange.includes('Present');
+    },
+    getDuration(dateRange) {
+      const dates = dateRange.split(' – ');
+      if (dates.length !== 2) return 'Duration not specified';
+      
+      // Handle MM/YYYY format
+      const parseDate = (dateStr) => {
+        if (dateStr === 'Current' || dateStr === 'Present') return new Date();
+        const parts = dateStr.split('/');
+        if (parts.length === 2) {
+          return new Date(parseInt(parts[1]), parseInt(parts[0]) - 1, 1);
+        }
+        return new Date(dateStr);
+      };
+      
+      const startDate = parseDate(dates[0]);
+      const endDate = parseDate(dates[1]);
+      
+      const diffTime = Math.abs(endDate - startDate);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      const years = Math.floor(diffDays / 365);
+      const months = Math.floor((diffDays % 365) / 30);
+      
+      if (years > 0) {
+        return months > 0 ? `${years}y ${months}m` : `${years}y`;
+      } else {
+        return `${months}m`;
+      }
+    }
   }
 };
 </script>
@@ -245,22 +302,51 @@ export default {
 .experience-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.position-info {
+  flex: 1;
 }
 
 .position {
-  font-size: 1.4em;
+  font-size: 1.5em;
   color: #2196F3;
-  margin: 0;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.experience-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .date {
   color: #666;
+  font-size: 0.95em;
+  padding: 6px 14px;
+  background: #f8f9fa;
+  border-radius: 16px;
+  font-weight: 500;
+  border: 1px solid #e9ecef;
+}
+
+.experience-duration {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #666;
   font-size: 0.9em;
-  padding: 5px 12px;
-  background: #f5f5f5;
-  border-radius: 15px;
+  
+  i {
+    font-size: 16px;
+    color: #2196F3;
+  }
 }
 
 .company-info {
@@ -291,10 +377,29 @@ export default {
   align-items: center;
   gap: 8px;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   
   i {
     color: #2196F3;
+  }
+}
+
+.project-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: #856404;
+  font-size: 0.85em;
+  
+  i {
+    color: #ffc107;
+    font-size: 18px;
+    flex-shrink: 0;
   }
 }
 
@@ -324,6 +429,11 @@ export default {
   font-size: 1.1em;
 }
 
+.project-name-text {
+  color: #333;
+  font-weight: 600;
+}
+
 .project-link {
   color: #2196F3;
   text-decoration: none;
@@ -345,6 +455,27 @@ export default {
   font-size: 0.95em;
   line-height: 1.5;
   margin-bottom: 15px;
+}
+
+.project-specific-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #e3f2fd;
+  border-left: 3px solid #2196F3;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  color: #1565C0;
+  font-size: 0.85em;
+  line-height: 1.4;
+  
+  i {
+    color: #2196F3;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
 }
 
 .skills-used {
@@ -385,6 +516,38 @@ export default {
   }
 }
 
+.project-actions {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.project-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: linear-gradient(45deg, #42A5F5, #2196F3);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.95em;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  
+  &:hover {
+    background: linear-gradient(45deg, #2196F3, #1976D2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  }
+  
+  i {
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 768px) {
   .timeline-item {
     padding-left: 30px;
@@ -393,11 +556,20 @@ export default {
   .experience-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 15px;
+  }
+  
+  .experience-meta {
+    align-items: flex-start;
   }
   
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .project-link-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 </style>

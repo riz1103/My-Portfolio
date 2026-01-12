@@ -27,133 +27,73 @@
               <!-- Here you can add your items from the section-start of your toolbar -->
             </mobile-menu>
             <md-list>
-              <li class="md-list-item" v-if="!showDownload">
-                <a
-                  href="javascript:void(0)"
-                  class="md-list-item-router md-list-item-container md-button-clean dropdown"
-                >
-                  <div class="md-list-item-content">
-                    <drop-down direction="down">
-                      <md-button
-                        slot="title"
-                        class="md-button md-button-link md-white md-simple dropdown-toggle"
-                        data-toggle="dropdown"
-                      >
-                        <i class="material-icons">apps</i>
-                        <p>Components</p>
-                      </md-button>
-                      <ul class="dropdown-menu dropdown-with-icons">
-                        <li>
-                          <a href="#/">
-                            <i class="material-icons">layers</i>
-                            <p>All Components</p>
-                          </a>
-                        </li>
-                        <!-- <li>
-                          <a
-                            href="https://demos.creative-tim.com/vue-material-kit/documentation/"
-                          >
-                            <i class="material-icons">content_paste</i>
-                            <p>Projects</p>
-                          </a>
-                        </li> -->
-                      </ul>
-                    </drop-down>
-                  </div>
-                </a>
-              </li>
+              <md-list-item href="javascript:void(0)" class="nav-item" @click.prevent="scrollToTop">
+                <i class="material-icons">home</i>
+                <p>Home</p>
+              </md-list-item>
 
-              <!-- <md-list-item
-                href="https://demos.creative-tim.com/vue-material-kit/documentation/"
-                target="_blank"
-                v-if="showDownload"
-              >
-                <i class="material-icons">content_paste</i>
+              <md-list-item href="javascript:void(0)" class="nav-item" @click.prevent="scrollToSection('skills')">
+                <i class="material-icons">psychology</i>
+                <p>Skills</p>
+              </md-list-item>
+
+              <md-list-item href="javascript:void(0)" class="nav-item" @click.prevent="scrollToSection('projects')">
+                <i class="material-icons">code</i>
                 <p>Projects</p>
-              </md-list-item> -->
+              </md-list-item>
+
+              <md-list-item href="javascript:void(0)" class="nav-item" @click.prevent="scrollToSection('experience')">
+                <i class="material-icons">work</i>
+                <p>Experience</p>
+              </md-list-item>
+
+              <md-list-item href="javascript:void(0)" class="nav-item" @click.prevent="scrollToSection('education')">
+                <i class="material-icons">school</i>
+                <p>Education</p>
+              </md-list-item>
+
+              <md-list-item href="javascript:void(0)" class="nav-item" @click.prevent="scrollToSection('contact')">
+                <i class="material-icons">contact_mail</i>
+                <p>Contact</p>
+              </md-list-item>
 
               <md-list-item
                 v-if="showDownload"
+                class="nav-item download-item"
               >
                 <a
                   download="Resume (Joseriz Concepcion).pdf"
                   href="/file/Resume (Joseriz Concepcion).pdf"
+                  class="download-link"
                 >
                   <i class="material-icons">cloud_download</i>
                   <p>Download CV</p>
                 </a>
               </md-list-item>
 
-              <li class="md-list-item" v-else>
-                <a
-                  href="javascript:void(0)"
-                  class="md-list-item-router md-list-item-container md-button-clean dropdown"
-                >
-                  <div class="md-list-item-content">
-                    <drop-down direction="down">
-                      <md-button
-                        slot="title"
-                        class="md-button md-button-link md-white md-simple dropdown-toggle"
-                        data-toggle="dropdown"
-                      >
-                        <i class="material-icons">view_carousel</i>
-                        <p>Examples</p>
-                      </md-button>
-                      <ul class="dropdown-menu dropdown-with-icons">
-                        <li>
-                          <a href="#/landing">
-                            <i class="material-icons">view_day</i>
-                            <p>Landing Page</p>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#/login">
-                            <i class="material-icons">fingerprint</i>
-                            <p>Login Page</p>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#/profile">
-                            <i class="material-icons">account_circle</i>
-                            <p>Profile Page</p>
-                          </a>
-                        </li>
-                      </ul>
-                    </drop-down>
-                  </div>
-                </a>
-              </li>
-
-              <!-- <md-list-item
-                href="https://twitter.com/CreativeTim"
-                target="_blank"
-              >
-                <i class="fab fa-twitter"></i>
-                <p class="hidden-lg">Twitter</p>
-                <md-tooltip md-direction="bottom"
-                  >Follow us on Twitter</md-tooltip
-                >
-              </md-list-item> -->
               <md-list-item
                 href="https://www.linkedin.com/in/joseriz-concepcion-b74302b4/"
                 target="_blank"
+                class="nav-item social-item"
               >
                 <i class="fab fa-linkedin"></i>
-                <p class="hidden-lg">Linkedin</p>
+                <p class="hidden-lg">LinkedIn</p>
                 <md-tooltip md-direction="bottom"
-                  >My Linkedin</md-tooltip
+                  >Connect on LinkedIn</md-tooltip
                 >
               </md-list-item>
-              <!-- <md-list-item
-                href="https://www.instagram.com/CreativeTimOfficial"
+
+              <md-list-item
+                href="https://github.com/joseriz"
                 target="_blank"
+                class="nav-item social-item"
               >
-                <i class="fab fa-instagram"></i>
-                <p class="hidden-lg">Instagram</p>
+                <i class="fab fa-github"></i>
+                <p class="hidden-lg">GitHub</p>
                 <md-tooltip md-direction="bottom"
-                  >Follow us on Instagram</md-tooltip
+                  >View GitHub Profile</md-tooltip
                 >
-              </md-list-item> -->
+              </md-list-item>
             </md-list>
           </div>
         </div>
@@ -163,11 +103,11 @@
 </template>
 
 <script>
-let resizeTimeout;
+var resizeTimeout;
 function resizeThrottler(actualResizeHandler) {
   // ignore resize events as long as an actualResizeHandler execution is in the queue
   if (!resizeTimeout) {
-    resizeTimeout = setTimeout(() => {
+    resizeTimeout = setTimeout(function() {
       resizeTimeout = null;
       actualResizeHandler();
 
@@ -185,16 +125,14 @@ export default {
     type: {
       type: String,
       default: "white",
-      validator(value) {
-        return [
-          "white",
-          "default",
-          "primary",
-          "danger",
-          "success",
-          "warning",
-          "info"
-        ].includes(value);
+      validator: function(value) {
+        var validTypes = ["white", "default", "primary", "danger", "success", "warning", "info"];
+        for (var i = 0; i < validTypes.length; i++) {
+          if (validTypes[i] === value) {
+            return true;
+          }
+        }
+        return false;
       }
     },
     colorOnScroll: {
@@ -202,46 +140,74 @@ export default {
       default: 0
     }
   },
-  data() {
+  data: function() {
     return {
       extraNavClasses: "",
       toggledClass: false
     };
   },
   computed: {
-    showDownload() {
-      const excludedRoutes = ["login", "landing", "profile"];
-      return excludedRoutes.every(r => r !== this.$route.name);
+    showDownload: function() {
+      var excludedRoutes = ["login", "landing", "profile"];
+      var currentRoute = this.$route.name;
+      for (var i = 0; i < excludedRoutes.length; i++) {
+        if (excludedRoutes[i] === currentRoute) {
+          return false;
+        }
+      }
+      return true;
     }
   },
   methods: {
-    bodyClick() {
-      let bodyClick = document.getElementById("bodyClick");
+    smoothScrollTo: function(targetY, duration) {
+      var startY = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      var distance = targetY - startY;
+      var startTime = null;
+
+      function easeInOutQuad(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+      }
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var elapsed = timestamp - startTime;
+        var progress = Math.min(elapsed / duration, 1);
+        var ease = easeInOutQuad(progress);
+        window.scrollTo(0, Math.round(startY + distance * ease));
+        if (elapsed < duration) {
+          window.requestAnimationFrame(step);
+        }
+      }
+
+      window.requestAnimationFrame(step);
+    },
+    bodyClick: function() {
+      var bodyClick = document.getElementById("bodyClick");
 
       if (bodyClick === null) {
-        let body = document.querySelector("body");
-        let elem = document.createElement("div");
+        var body = document.querySelector("body");
+        var elem = document.createElement("div");
         elem.setAttribute("id", "bodyClick");
         body.appendChild(elem);
 
-        let bodyClick = document.getElementById("bodyClick");
+        var bodyClick = document.getElementById("bodyClick");
         bodyClick.addEventListener("click", this.toggleNavbarMobile);
       } else {
         bodyClick.remove();
       }
     },
-    toggleNavbarMobile() {
+    toggleNavbarMobile: function() {
       this.NavbarStore.showNavbar = !this.NavbarStore.showNavbar;
       this.toggledClass = !this.toggledClass;
       this.bodyClick();
     },
-    handleScroll() {
-      let scrollValue =
+    handleScroll: function() {
+      var scrollValue =
         document.body.scrollTop || document.documentElement.scrollTop;
-      let navbarColor = document.getElementById("toolbar");
+      var navbarColor = document.getElementById("toolbar");
       this.currentScrollValue = scrollValue;
       if (this.colorOnScroll > 0 && scrollValue > this.colorOnScroll) {
-        this.extraNavClasses = `md-${this.type}`;
+        this.extraNavClasses = "md-" + this.type;
         navbarColor.classList.remove("md-transparent");
       } else {
         if (this.extraNavClasses) {
@@ -250,21 +216,134 @@ export default {
         }
       }
     },
-    scrollListener() {
+    scrollListener: function() {
       resizeThrottler(this.handleScroll);
     },
-    scrollToElement() {
-      let element_id = document.getElementById("downloadSection");
-      if (element_id) {
-        element_id.scrollIntoView({ block: "end", behavior: "smooth" });
+    scrollToElement: function() {
+      var element = document.getElementById("downloadSection");
+      if (element) {
+        var toolbar = document.getElementById("toolbar");
+        var toolbarHeight = toolbar ? toolbar.offsetHeight : 0;
+        var wrapper = document.querySelector(".wrapper");
+        var wrapperMarginTop = 0;
+        if (wrapper) {
+          var mt = window.getComputedStyle(wrapper).marginTop;
+          wrapperMarginTop = parseInt(mt, 10) || 0;
+        }
+        var negativeMarginComp = wrapperMarginTop < 0 ? -wrapperMarginTop : 0;
+        var adjust = toolbarHeight + negativeMarginComp + 16;
+        var top = element.getBoundingClientRect().top + window.pageYOffset - adjust;
+        this.smoothScrollTo(top, 600);
+      }
+    },
+    scrollToSection: function(sectionId) {
+      this.toggledClass = false;
+      this.NavbarStore.showNavbar = false;
+      
+      if (this.$route.name !== 'index') {
+        this.$router.push('/');
+        var self = this;
+        this.$nextTick(function() {
+          setTimeout(function() {
+            var element = document.getElementById(sectionId);
+            if (element) {
+              var toolbar = document.getElementById("toolbar");
+              var toolbarHeight = toolbar ? toolbar.offsetHeight : 0;
+              var wrapper = document.querySelector(".wrapper");
+              var wrapperMarginTop = 0;
+              if (wrapper) {
+                var mt = window.getComputedStyle(wrapper).marginTop;
+                wrapperMarginTop = parseInt(mt, 10) || 0;
+              }
+              var negativeMarginComp = wrapperMarginTop < 0 ? -wrapperMarginTop : 0;
+              var adjust = toolbarHeight + negativeMarginComp + 16;
+              var top = element.getBoundingClientRect().top + window.pageYOffset - adjust;
+              self.smoothScrollTo(top, 600);
+            }
+          }, 100);
+        });
+      } else {
+        var element = document.getElementById(sectionId);
+        if (element) {
+          var toolbar = document.getElementById("toolbar");
+          var toolbarHeight = toolbar ? toolbar.offsetHeight : 0;
+          var wrapper = document.querySelector(".wrapper");
+          var wrapperMarginTop = 0;
+          if (wrapper) {
+            var mt = window.getComputedStyle(wrapper).marginTop;
+            wrapperMarginTop = parseInt(mt, 10) || 0;
+          }
+          var negativeMarginComp = wrapperMarginTop < 0 ? -wrapperMarginTop : 0;
+          var adjust = toolbarHeight + negativeMarginComp + 16;
+          var top = element.getBoundingClientRect().top + window.pageYOffset - adjust;
+          this.smoothScrollTo(top, 600);
+        }
+      }
+    },
+    scrollToTop: function() {
+      this.toggledClass = false;
+      this.NavbarStore.showNavbar = false;
+      
+      if (this.$route.name !== 'index') {
+        this.$router.push('/');
+      } else {
+        this.smoothScrollTo(0, 600);
       }
     }
   },
-  mounted() {
+  mounted: function() {
     document.addEventListener("scroll", this.scrollListener);
   },
-  beforeDestroy() {
+  beforeDestroy: function() {
     document.removeEventListener("scroll", this.scrollListener);
   }
 };
 </script>
+
+<style scoped>
+.nav-item {
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+  background: rgba(33, 150, 243, 0.1);
+  border-radius: 8px;
+}
+
+.download-item {
+  background: linear-gradient(45deg, #2196F3, #3F51B5);
+  border-radius: 8px;
+  margin: 0 8px;
+}
+
+.download-link {
+  color: white !important;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-item {
+  transition: all 0.3s ease;
+}
+
+.social-item:hover {
+  background: rgba(33, 150, 243, 0.1);
+  border-radius: 8px;
+}
+
+.social-item:hover i {
+  color: #2196F3;
+}
+
+@media (max-width: 768px) {
+  .nav-item {
+    margin: 4px 0;
+  }
+  
+  .download-item {
+    margin: 8px 0;
+  }
+}
+</style>
