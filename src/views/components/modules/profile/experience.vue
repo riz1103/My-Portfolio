@@ -98,7 +98,7 @@ export default {
             },
             {
               name: 'Stella Config Portal',
-              urlString: 'https://config-testing.stellaportal.dev',
+              urlString: 'https://dev.stellanetworks.io/config',
               description: 'A portal used to implement deeper testing and configuration of network devices deployed in customers',
               skill_used: 'Vue 3, Typescript, Pinia, Quasar',
               note: 'This portal has been merged with the UAT Portal and is now part of it. The link is no longer accessible.'
