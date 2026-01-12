@@ -26,8 +26,8 @@ export default {
             education: [
                 {
                     school_name: 'COLEGIO DE SAN JUAN DE LETRAN - CALAMBA',
-                    course: 'BACHELOR OF SCIENCE IN COMPUTER ENGINEERING',
-                    years: '2004 - 2009',
+                    course: 'BACHELOR OF SCIENCE COMPUTER ENGINEERING',
+                    years: '01/2009',
                 },
                 {
                     school_name: 'Liceo de Victoria',

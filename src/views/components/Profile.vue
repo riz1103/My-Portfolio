@@ -17,11 +17,13 @@
             <h2 class="profession-title">
               <span class="role-highlight">Senior Frontend Developer</span>
               <span class="experience-badge">9+ Years Experience</span>
+              <span class="certification-badge">
+                <i class="fab fa-aws"></i>
+                AWS Certified Cloud Practitioner
+              </span>
             </h2>
             <p class="intro-summary">
-              Passionate about creating exceptional user experiences through clean, efficient code. 
-              Specializing in Vue.js, React, and modern web technologies to build scalable applications 
-              that drive business success.
+              Senior Frontend Developer with 9+ years of professional experience, including 5+ years specializing in frontend development and 4 years in full-stack roles. Expert in building scalable, high-performance web applications using Vue 3, TypeScript, and modern frontend architectures. Proven track record of delivering business-critical systems for analytics, customer portals, e-commerce, and internal platforms. Strong focus on performance optimization, reusable component architecture, code quality, and reliability. Experienced working with international clients, agile teams, and fast-paced environments. Currently expanding expertise into cloud platforms (AWS) and system scalability to complement frontend leadership skills.
             </p>
             <div class="social-links">
               <a href="https://www.linkedin.com/in/joseriz-concepcion-b74302b4/" target="_blank" class="social-btn linkedin-btn">
@@ -169,6 +171,10 @@
           <h2 class="section-title">Featured Projects</h2>
           <p class="section-subtitle">Showcasing my best work and technical achievements</p>
         </div>
+        <div class="project-note">
+          <i class="fas fa-info-circle"></i>
+          <span>Note: Some project links may no longer be accessible as I no longer have control over these deployments.</span>
+        </div>
         <div class="featured-projects">
           <div v-for="project in featuredProjects" :key="project.id" class="project-card">
             <div class="project-image">
@@ -222,6 +228,41 @@
         <Education class="md-layout-item md-size-50 md-xsmall-size-100" />
       </div>
 
+      <!-- Certifications Section -->
+      <div id="certifications" class="certifications-section">
+        <div class="section-header">
+          <h2 class="section-title">Certifications</h2>
+          <p class="section-subtitle">Professional credentials and achievements</p>
+        </div>
+        <div class="certifications-grid">
+          <div class="certification-card">
+            <div class="certification-badge-embed">
+              <div 
+                data-iframe-width="150" 
+                data-iframe-height="270" 
+                data-share-badge-id="a840c602-eac6-43d4-b5ef-c1e634890353" 
+                data-share-badge-host="https://www.credly.com"
+              ></div>
+            </div>
+            <div class="certification-content">
+              <h3 class="certification-title">AWS Certified Cloud Practitioner</h3>
+              <p class="certification-level">Foundational</p>
+              <p class="certification-description">Validated knowledge of AWS Cloud concepts, services, and architectural best practices.</p>
+              <div class="certification-dates">
+                <div class="certification-date">
+                  <i class="fas fa-calendar-check"></i>
+                  <span><strong>Issued:</strong> January 11, 2026</span>
+                </div>
+                <div class="certification-date">
+                  <i class="fas fa-calendar-times"></i>
+                  <span><strong>Expires:</strong> January 11, 2029</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Contact Section -->
       <div id="contact" class="contact-section">
         <div class="section-header">
@@ -236,8 +277,19 @@
               </div>
               <div class="contact-details">
                 <h4>Email</h4>
-                <p>joseriz.concepcion@gmail.com</p>
-                <a href="mailto:joseriz.concepcion@gmail.com" class="contact-link">Send Email</a>
+                <p>joserizc@gmail.com</p>
+                <a href="mailto:joserizc@gmail.com" class="contact-link">Send Email</a>
+              </div>
+            </div>
+            
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-details">
+                <h4>Phone</h4>
+                <p>(639) 394006408</p>
+                <a href="tel:+639394006408" class="contact-link">Call</a>
               </div>
             </div>
             
@@ -258,7 +310,7 @@
               </div>
               <div class="contact-details">
                 <h4>Location</h4>
-                <p>Laguna, Philippines</p>
+                <p>Victoria, Laguna, Philippines 4011</p>
                 <span class="contact-link">Available for Remote Work</span>
               </div>
             </div>
@@ -268,8 +320,8 @@
             <h3>Ready to Start Your Project?</h3>
             <p>I'm always excited to work on new challenges and help bring innovative ideas to life. Whether you need a full-stack application, mobile app, or consultation on your tech stack, I'm here to help.</p>
             <div class="cta-buttons">
-              <a href="mailto:joseriz.concepcion@gmail.com" class="cta-btn primary">
-                <i class="fas fa-paper-plane"></i>
+              <a href="https://www.linkedin.com/in/joseriz-concepcion-b74302b4/" target="_blank" class="cta-btn primary">
+                <i class="fab fa-linkedin"></i>
                 Start a Conversation
               </a>
               <a href="/file/Resume (Joseriz Concepcion).pdf" download="Resume (Joseriz Concepcion).pdf" class="cta-btn secondary">
@@ -323,29 +375,30 @@ export default {
         rangeSlider: [20, 60],
       },
       frontendSkills: [
-        { label: 'Vue.js', rate: 95, icon: 'fab fa-vuejs' },
-        { label: 'JavaScript', rate: 90, icon: 'fab fa-js-square' },
-        { label: 'TypeScript', rate: 85, icon: 'fas fa-code' },
-        { label: 'React', rate: 75, icon: 'fab fa-react' },
+        { label: 'Vue.js (Vue 2 & Vue 3)', rate: 95, icon: 'fab fa-vuejs' },
+        { label: 'TypeScript', rate: 90, icon: 'fas fa-code' },
+        { label: 'JavaScript (ES6+)', rate: 90, icon: 'fab fa-js-square' },
         { label: 'HTML5', rate: 95, icon: 'fab fa-html5' },
         { label: 'CSS3', rate: 90, icon: 'fab fa-css3-alt' },
         { label: 'SCSS/Sass', rate: 85, icon: 'fab fa-sass' },
-        { label: 'Quasar', rate: 80, icon: 'fas fa-layer-group' },
+        { label: 'Quasar', rate: 80, icon: 'fas fa-cube' },
       ],
       backendSkills: [
         { label: 'C#.NET', rate: 75, icon: 'fab fa-microsoft' },
-        { label: 'MS SQL Server', rate: 70, icon: 'fas fa-database' },
+        { label: 'MS SQL', rate: 70, icon: 'fas fa-database' },
+        { label: 'Microsoft Dynamics CRM', rate: 70, icon: 'fas fa-cogs' },
+        { label: 'REST API Integration', rate: 80, icon: 'fas fa-cloud' },
         { label: 'Node.js', rate: 60, icon: 'fab fa-node-js' },
-        { label: 'REST APIs', rate: 80, icon: 'fas fa-cloud' },
-        { label: 'MS Dynamics CRM', rate: 70, icon: 'fas fa-cogs' },
       ],
       toolSkills: [
-        { label: 'Git', rate: 85, icon: 'fab fa-git-alt' },
+        { label: 'AWS Cloud Services (Certified)', rate: 80, icon: 'fab fa-aws' },
+        { label: 'Agile / Scrum', rate: 85, icon: 'fas fa-users' },
+        { label: 'Code Refactoring', rate: 90, icon: 'fas fa-code-branch' },
+        { label: 'Reusable UI Libraries', rate: 88, icon: 'fas fa-puzzle-piece' },
+        { label: 'CI/CD Collaboration', rate: 80, icon: 'fas fa-sync-alt' },
+        { label: 'Git', rate: 85, icon: 'fab fa-git' },
         { label: 'VS Code', rate: 90, icon: 'fas fa-code' },
-        { label: 'Capacitor', rate: 75, icon: 'fas fa-mobile-alt' },
-        { label: 'Nuxt.js', rate: 80, icon: 'fas fa-rocket' },
-        { label: 'Webpack', rate: 70, icon: 'fas fa-cube' },
-        { label: 'Agile/Scrum', rate: 85, icon: 'fas fa-users' },
+        { label: 'Cursor AI', rate: 85, icon: 'fas fa-magic' },
       ],
       featuredProjects: [
         {
@@ -395,6 +448,16 @@ export default {
       ]
     };
   },
+  mounted() {
+    // Load Credly badge embed script
+    if (!document.querySelector('script[src*="credly.com"]')) {
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.src = '//cdn.credly.com/assets/utilities/embed.js';
+      document.body.appendChild(script);
+    }
+  },
 };
 </script>
 
@@ -411,7 +474,7 @@ html {
 }
 
 /* Add padding to sections to account for fixed navbar */
-#about, #skills, #projects, #experience, #education, #contact {
+#about, #skills, #projects, #experience, #education, #certifications, #contact {
   scroll-margin-top: 80px;
 }
 
@@ -537,6 +600,22 @@ html {
   font-weight: 500;
 }
 
+.certification-badge {
+  background: linear-gradient(45deg, #FF9900, #FF6600);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  
+  i {
+    font-size: 1.1em;
+  }
+}
+
 .intro-summary {
   font-size: 1.1em;
   color: #666;
@@ -586,6 +665,12 @@ html {
   background: #333;
   color: white;
   border-color: #333;
+}
+
+.portfolio-btn:hover {
+  background: #2196F3;
+  color: white;
+  border-color: #2196F3;
 }
 
 .download-btn {
@@ -785,7 +870,7 @@ html {
   font-size: 0.9em;
 }
 
-.projects-section, .experience-section, .education-section, .contact-section {
+.projects-section, .experience-section, .education-section, .certifications-section, .contact-section {
   background: white;
   padding: 50px;
   border-radius: 24px;
@@ -940,6 +1025,25 @@ html {
   }
 }
 
+.project-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  color: #856404;
+  font-size: 0.9em;
+  
+  i {
+    color: #ffc107;
+    font-size: 1.1em;
+    flex-shrink: 0;
+  }
+}
+
 .featured-projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -1073,6 +1177,91 @@ html {
   }
 }
 
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.certification-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.certification-badge-embed {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+}
+
+.certification-content {
+  flex: 1;
+}
+
+.certification-title {
+  font-size: 1.4em;
+  color: #333;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.certification-level {
+  display: inline-block;
+  background: linear-gradient(45deg, #FF9900, #FF6600);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 500;
+  margin: 0 0 15px 0;
+}
+
+.certification-description {
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.certification-dates {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.certification-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #2196F3;
+  font-size: 0.9em;
+  font-weight: 500;
+
+  i {
+    font-size: 1em;
+  }
+
+  strong {
+    color: #333;
+    margin-right: 4px;
+  }
+}
+
 .experience-image {
   display: flex;
   justify-content: center;
@@ -1122,8 +1311,18 @@ html {
     grid-template-columns: 1fr;
   }
 
-  .hero-section, .skills-section, .projects-section, .experience-section, .education-section, .contact-section {
+  .hero-section, .skills-section, .projects-section, .experience-section, .education-section, .certifications-section, .contact-section {
     padding: 30px 20px;
+  }
+
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .certification-card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
   }
 
   .featured-projects {
