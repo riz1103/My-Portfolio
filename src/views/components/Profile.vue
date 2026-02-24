@@ -337,7 +337,7 @@
 </template>
 
 <script>
-import idPic from "../../assets/img/idPic.png";
+import idPic from "../../assets/img/idPic.jpg";
 import Experience from "./modules/profile/experience";
 import Education from "./modules/profile/education";
 import ProfessionalImg from "../../assets/img/professional.png";
