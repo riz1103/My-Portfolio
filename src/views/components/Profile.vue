@@ -376,22 +376,27 @@ export default {
       },
       frontendSkills: [
         { label: 'Vue.js (Vue 2 & Vue 3)', rate: 95, icon: 'fab fa-vuejs' },
+        { label: 'React', rate: 85, icon: 'fab fa-react' },
+        { label: 'Next.js', rate: 80, icon: 'fas fa-forward' },
         { label: 'TypeScript', rate: 90, icon: 'fas fa-code' },
         { label: 'JavaScript (ES6+)', rate: 90, icon: 'fab fa-js-square' },
         { label: 'HTML5', rate: 95, icon: 'fab fa-html5' },
         { label: 'CSS3', rate: 90, icon: 'fab fa-css3-alt' },
         { label: 'SCSS/Sass', rate: 85, icon: 'fab fa-sass' },
+        { label: 'Pinia', rate: 85, icon: 'fas fa-database' },
         { label: 'Quasar', rate: 80, icon: 'fas fa-cube' },
       ],
       backendSkills: [
         { label: 'C#.NET', rate: 75, icon: 'fab fa-microsoft' },
+        { label: 'Node.js', rate: 75, icon: 'fab fa-node-js' },
+        { label: 'Firebase', rate: 80, icon: 'fas fa-fire' },
         { label: 'MS SQL', rate: 70, icon: 'fas fa-database' },
         { label: 'Microsoft Dynamics CRM', rate: 70, icon: 'fas fa-cogs' },
         { label: 'REST API Integration', rate: 80, icon: 'fas fa-cloud' },
-        { label: 'Node.js', rate: 60, icon: 'fab fa-node-js' },
       ],
       toolSkills: [
         { label: 'AWS Cloud Services (Certified)', rate: 80, icon: 'fab fa-aws' },
+        { label: 'Google Maps API', rate: 75, icon: 'fas fa-map' },
         { label: 'Agile / Scrum', rate: 85, icon: 'fas fa-users' },
         { label: 'Code Refactoring', rate: 90, icon: 'fas fa-code-branch' },
         { label: 'Reusable UI Libraries', rate: 88, icon: 'fas fa-puzzle-piece' },
@@ -444,6 +449,28 @@ export default {
           image: require('@/assets/img/rex-logo.png'),
           users: 'Online Customers',
           impact: 'Digital Sales Growth'
+        },
+        {
+          id: 5,
+          title: 'Address Cleaner',
+          description: 'A powerful address validation and cleaning tool built with Vue 3 and TypeScript. Features Google Maps integration for accurate geocoding, real-time address suggestions, and Firebase for data persistence. Built with Pinia for state management.',
+          technologies: ['Vue 3', 'TypeScript', 'Pinia', 'Firebase', 'Google Maps'],
+          demoUrl: 'https://address-cleaner.coretexai.com/',
+          githubUrl: '#',
+          image: require('@/assets/img/address-cleaner-logo.png'),
+          users: 'Freelance Project',
+          impact: 'Address Validation Tool'
+        },
+        {
+          id: 6,
+          title: 'Xevra - Examination Platform',
+          description: 'A comprehensive examination platform where proctors create and manage exams, invite examinees, and analyze results. Features smart exam creation, secure proctoring, instant results with analytics, and group management capabilities.',
+          technologies: ['React', 'Next.js', 'Node.js', 'Firebase'],
+          demoUrl: 'https://xevra-exam.netlify.app/',
+          githubUrl: '#',
+          image: require('@/assets/img/xevra-logo.png'),
+          users: 'Personal Project',
+          impact: 'Exam Management System'
         }
       ]
     };
