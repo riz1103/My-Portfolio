@@ -57,11 +57,26 @@
                 <i class="fas fa-code card-icon"></i>
               </div>
               <h3>Frontend Development</h3>
-              <p>Building responsive, interactive web applications with Vue.js, React, and modern JavaScript frameworks</p>
+              <p>Building responsive, interactive web applications with Vue.js, React, Next.js, and modern JavaScript frameworks</p>
               <div class="card-skills">
                 <span class="skill-tag">Vue.js</span>
                 <span class="skill-tag">React</span>
+                <span class="skill-tag">Next.js</span>
                 <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">Pinia</span>
+              </div>
+            </div>
+            <div class="specialty-card">
+              <div class="card-icon-container">
+                <i class="fas fa-server card-icon"></i>
+              </div>
+              <h3>Backend Development</h3>
+              <p>Building robust server-side applications and APIs with Node.js, Firebase, and cloud services</p>
+              <div class="card-skills">
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">Firebase</span>
+                <span class="skill-tag">REST APIs</span>
+                <span class="skill-tag">AWS</span>
               </div>
             </div>
             <div class="specialty-card">
